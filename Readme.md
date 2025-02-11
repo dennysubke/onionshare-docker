@@ -1,6 +1,12 @@
 
 # OnionShare Docker
 
+
+![image](https://github.com/user-attachments/assets/f821e072-f6e4-41cc-9b6a-9bbc2fe61231)
+
+
+---
+
 This repository contains a Docker setup for OnionShare, allowing you to easily share files or a website over the Tor network. With this setup, you can securely and anonymously share your files, including GitHub repositories, using a Tor onion service.
 
 ## Prerequisites
@@ -86,6 +92,6 @@ Your GitHub repository or any other files within the `/shared` directory will no
     docker run -d -p <new-port>:9192 --name onionshare-server -v C:\Users\user\github-repo:/shared dennysubke/onionshare:2.6.1 /root/.local/bin/onionshare-cli --website /shared
     ```
 
-![image](https://github.com/user-attachments/assets/f821e072-f6e4-41cc-9b6a-9bbc2fe61231)
+---
 
 
