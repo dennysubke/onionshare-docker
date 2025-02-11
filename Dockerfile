@@ -1,21 +1,19 @@
 FROM debian:bookworm
 
-# Umgebungsvariablen setzen
 ENV ONIONSHARE_VERSION=2.6.1
-ENV PIPX_BIN_DIR=/usr/local/bin
+ENV PIPX_BIN_DIR=/root/.local/bin
 
-# Systemabhängige Pakete installieren
-RUN apt-get update && apt-get -yq --no-install-recommends install tor pipx python3-pyqt5
+RUN apt-get update && apt-get install -yq --no-install-recommends \
+    tor \
+    pipx \
+    python3-pyqt5 \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
-# OnionShare installieren
 RUN pipx install onionshare-cli==$ONIONSHARE_VERSION
 
-# Volumes für den Datentransfer
-VOLUME ["/shared"]
-
-# Exponieren von Port 9192
 EXPOSE 9192
 
-# Startbefehl für den OnionShare-Server mit der UI und Tor
-ENTRYPOINT ["/usr/local/bin/onionshare", "gui", "--port", "9192"]
-CMD ["--shared-folder", "/shared"]
+VOLUME ["/shared"]
+
+ENTRYPOINT ["/root/.local/bin/onionshare-cli", "gui", "--port", "9192"]
