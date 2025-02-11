@@ -16,4 +16,4 @@ EXPOSE 9192
 
 VOLUME ["/shared"]
 
-ENTRYPOINT ["/root/.local/bin/onionshare-cli", "gui"]
+ENTRYPOINT ["/root/.local/bin/onionshare-cli", "--web", "--port", "9192"]
