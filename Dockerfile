@@ -1,7 +1,7 @@
 FROM debian:bookworm
 
 # Umgebungsvariablen setzen
-ENV ONIONSHARE_VERSION=2.6.2
+ENV ONIONSHARE_VERSION=2.6.1
 ENV PIPX_BIN_DIR=/usr/local/bin
 
 # Systemabhängige Pakete installieren
